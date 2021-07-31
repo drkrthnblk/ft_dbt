@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_weather_final
+    description: contains weather details
+    columns:
+      - name: clouds
+        description: clouds
+        tests:
+          - not_null
+      - name: weather
+        description: "{{ doc('weather_status') }}"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - Clouds
+                - Thunderstorm
+                - Clear
+                - Mist
+                - Rain
+                - Haze
+                - Snow
+                - Fog
+                - Drizzle
+                - Smoke
+                - Dust
+                - Squall
